@@ -57,7 +57,8 @@ def app():
     label="Select the number of samples:",
     min_value=10,
     max_value=1000,
-    value=50,  # Initial value
+    value=500,  # Initial value
+    step=10,
     )
 
     cluster_std = st.sidebar.slider(
