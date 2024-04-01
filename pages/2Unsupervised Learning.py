@@ -62,8 +62,25 @@ def app():
         st.write("Within-Cluster Sum of Squares:", wcss)
 
         silhouette_score = metrics.silhouette_score(X, y_kmeans)
-        st.write("K-means Silhouette Score:", silhouette_score)    
+        st.write("K-means Silhouette Score:", silhouette_score)
 
+        text = """**Within-Cluster Sum of Squares (WCSS): 78.85144142614598**
+        This value alone doesn't tell the whole story. A lower WCSS generally indicates tighter 
+        clusters, but it depends on the scale of your data and the number of clusters used (k).
+        \n**K-mmeans Silhouette Score: 0.5528190123564095**
+        * This score provides a more interpretable measure of cluster quality. It 
+        ranges from -1 to 1, where:
+        * Values closer to 1 indicate well-separated clusters.
+        * Values around 0 suggest clusters are indifferently assigned (data points could belong to either cluster).
+        * Negative values indicate poorly separated clusters (data points in a cluster are closer to points in other clusters).
+        In this case, a Silhouette Score of 0.5528 suggests:
+        * **Moderately separated clusters:** The data points within a cluster are somewhat closer to their centroid than to centroids of other clusters. There's some separation, but it's not perfect
+        * **Potential for improvement:** You might consider exploring different numbers of clusters (k) or using different initialization methods for K-means to see if a better clustering solution can be achieved with a higher Silhouette Score (closer to 1).
+        * The Iris dataset is relatively well-separated into three flower species. A Silhouette Score above 0.5 might be achievable with an appropriate number of clusters (k=3) and good initialization.
+        * The optimal k can vary depending on the specific dataset and the desired level of granularity in the clustering."""
+        with st.expander("Click here for more information."):\
+            st.write(text)
+            
         # Get predicted cluster labels
         y_pred = kmeans.predict(X)
 
