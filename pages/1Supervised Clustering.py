@@ -71,7 +71,7 @@ def app():
         # KNN for supervised classification (reference for comparison)
 
         # Define the KNN classifier with k=5 neighbors
-        knn = KNeighborsClassifier(n_neighbors=5)
+        knn = KNeighborsClassifier(n_neighbors=k)
 
         # Train the KNN model
         knn.fit(X, y)
