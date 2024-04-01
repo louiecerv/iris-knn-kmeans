@@ -90,9 +90,9 @@ def app():
         fig, ax = plt.subplots(figsize=(8, 6))
 
         for label, color in zip(unique_labels, colors):
-        indices = y_pred == label
-        # Use ax.scatter for consistent plotting on the created axis
-        ax.scatter(X[indices, 0], X[indices, 1], label=iris.target_names[label], c=color)
+            indices = y_pred == label
+            # Use ax.scatter for consistent plotting on the created axis
+            ax.scatter(X[indices, 0], X[indices, 1], label=iris.target_names[label], c=color)
 
         # Add labels and title using ax methods
         ax.set_xlabel('Sepal length (cm)')
