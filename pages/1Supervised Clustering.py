@@ -79,10 +79,10 @@ def app():
         # Predict the cluster labels for the data
         y_pred = knn.predict(X)
         st.write('Confusion Matrix')
-        cm = confusion_matrix(y_test, y_test_pred)
+        cm = confusion_matrix(y, y_pred)
         st.text(cm)
         st.subheader('Performance Metrics')
-        st.text(classification_report(y_test, y_test_pred))
+        st.text(classification_report(y, y_pred))
 
         # Get unique class labels and color map
         unique_labels = list(set(y_pred))
