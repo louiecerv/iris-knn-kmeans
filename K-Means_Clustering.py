@@ -16,7 +16,7 @@ def app():
     if "new_clusters" not in st.session_state:
         st.session_state.new_clusters = False
 
-    text = """The K-Means Clustering Algorithm"""
+    text = """Comparing Supervised and Unsupervised Clustering"""
     st.subheader(text)
 
     text = """Louie F. Cervantes, M. Eng. (Information Engineering) \n\n
@@ -26,24 +26,22 @@ def app():
     West Visayas State University"""
     st.text(text)
 
-    st.image('k-means.jpeg', caption="K-Means Clustering Algorithm""")
+    st.image('iris_flower.jpg', caption="The Iris Dataset""")
 
-    text = """K-means clustering is a popular unsupervised machine learning algorithm 
-    used for clustering data points into groups or clusters based on their similarity. 
-    The goal of K-means clustering is to partition the data points into K number of 
-    distinct non-overlapping clusters, where K is a pre-defined number specified by the user.
-    \nThe algorithm works by first randomly selecting K centroids, which are the initial 
-    representative points of the clusters. Then, the algorithm iteratively assigns each 
-    data point to the nearest centroid based on the Euclidean distance between the data 
-    point and the centroids. After all data points are assigned to a centroid, 
-    the algorithm updates the centroid by taking the mean of all data points assigned 
-    to it. This process is repeated until convergence, which occurs when the data points 
-    no longer change their assignments to centroids.
-    \nThe final result of K-means clustering is a set of K clusters, where each data 
-    point is assigned to the cluster whose centroid is closest to it. The algorithm is 
-    widely used in various fields, including image segmentation, market segmentation, 
-    and anomaly detection, among others."""
-
+    text = """Data App: Supervised vs Unsupervised Clustering Performance
+    \nThis data app allows users to compare the performance of supervised learning (KNN) and unsupervised 
+    learning (K-Means) gorithms for clustering tasks. Here's a breakdown of the functionalities:
+    \nOnce configured, users can initiate the analysis. The app will run the KNN and K-Means algorithms on 
+    the iris dataset.
+    \n**Visualization and Comparison:**
+    * The app will present the clustering results visually.
+    * Scatter plots with data points colored by their assigned cluster for both KNN and K-Means.
+    * Silhouette analysis to compare the quality of clusters for K-Means.
+    * Users can compare the visual representations of the clusters formed by each algorithm.
+    \n**Performance Metrics (Optional):**
+    *\nThe app includes basic performance metrics relevant to the chosen algorithms:
+    * For KNN (classification task): Accuracy, precision, recall, F1-score (assuming labeled data is available for evaluation).
+    * For K-Means (unsupervised task): Silhouette score (measures cluster separation)."""
     st.write(text)
     
 #run the app
