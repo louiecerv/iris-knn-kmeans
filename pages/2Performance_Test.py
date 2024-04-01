@@ -36,7 +36,7 @@ def app():
         # Try different numbers of clusters
         for k in range(2, 11):
             # Create KMeans object
-            kmeans = KMeans(n_clusters=k, random_state=0)
+            kmeans = KMeans(n_clusters=k, random_state=42)
 
             # Fit the model to the data
             kmeans.fit(X)
