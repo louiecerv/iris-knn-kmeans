@@ -6,6 +6,8 @@ import altair as alt
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn import datasets, metrics
+from sklearn.metrics import pairwise_distances_argmin
+from sklearn.metrics.pairwise import pairwise_distances
 from sklearn.cluster import KMeans
 import time
 
@@ -54,6 +56,10 @@ def app():
         # Since there are no true labels for unsupervised clustering,
         # we cannot directly calculate accuracy.
         # We can use silhouette score to evaluate cluster separation
+
+        # Calculate WCSS
+        wcss = kmeans.inertia_
+        st.write("Within-Cluster Sum of Squares:", wcss)
 
         silhouette_score = metrics.silhouette_score(X, y_kmeans)
         st.write("K-means Silhouette Score:", silhouette_score)    
