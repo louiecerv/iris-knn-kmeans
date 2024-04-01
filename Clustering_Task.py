@@ -3,7 +3,7 @@ import streamlit as st
 # Define the Streamlit app
 def app():
 
-    text = """Comparing Supervised and Unsupervised Clustering"""
+    text = """Comparing Supervised and Unsupervised Learning: KNN vs KMeans"""
     st.subheader(text)
 
     text = """Louie F. Cervantes, M. Eng. (Information Engineering) \n\n
@@ -15,9 +15,9 @@ def app():
 
     st.image('iris_flower.jpg', caption="The Iris Dataset""")
 
-    text = """Data App: Supervised vs Unsupervised Clustering Performance
+    text = """Data App: Supervised vs Unsupervised Learning Performance
     \nThis data app allows users to compare the performance of supervised learning (KNN) and unsupervised 
-    learning (K-Means) gorithms for clustering tasks. Here's a breakdown of the functionalities:
+    learning (K-Means) gorithms for clustering tasks. 
     \nOnce configured, users can initiate the analysis. The app will run the KNN and K-Means algorithms on 
     the iris dataset.
     \n**Visualization and Comparison:**
