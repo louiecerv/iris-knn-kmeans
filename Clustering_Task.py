@@ -3,9 +3,6 @@ import streamlit as st
 # Define the Streamlit app
 def app():
 
-    if "new_clusters" not in st.session_state:
-        st.session_state.new_clusters = False
-
     text = """Comparing Supervised and Unsupervised Clustering"""
     st.subheader(text)
 
