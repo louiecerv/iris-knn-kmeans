@@ -62,6 +62,9 @@ def app():
 
         silhouette_score = metrics.silhouette_score(X, y_kmeans)
         st.write("K-means Silhouette Score:", silhouette_score)    
+        
+        # Get predicted cluster labels
+        y_pred = kmeans.predict(X)
 
         # Get unique class labels and color map
         unique_labels = list(set(y_pred))
