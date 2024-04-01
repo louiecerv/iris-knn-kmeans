@@ -46,15 +46,33 @@ def app():
     \ny: An array containing the assigned cluster labels for 
     each data point, corresponding to the n_clusters clusters."""
     st.write(text)
+    n_clusters = st.sidebar.slider(
+    label="Number of clusters:",
+    min_value= 2,
+    max_value= 10,
+    value=4,  # Initial value
+    )
+
+    n_samples = st.sidebar.slider(
+    label="Select the number of samples:",
+    min_value=10,
+    max_value=1000,
+    value=50,  # Initial value
+    )
+
+    cluster_std = st.sidebar.slider(
+    label="Select the cluster std:",
+    min_value= 0.2,
+    max_value= 1.0,
+    value=0.5,  # Initial value
+    )
 
     if st.button("Generate"):
 
         # Create a progress bar object
         progress_bar = st.progress(0, text="Generating random data clusters please wait...")
 
-        n_clusters = st.session_state.n_clusters
-        n_samples = 1000
-        cluster_std = 0.7
+        st.session_state.n_clusters = n_clusters
         random_state = 42
         centers = generate_random_points_in_square(-4, 4, -4, 4, n_clusters)
         X, y = make_blobs(n_samples=n_samples, n_features=2,
