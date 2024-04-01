@@ -34,12 +34,7 @@ def app():
     and potentially validate the separability of the known flower species based on their 
     measured characteristics."""
     st.write(text)
-    k = st.sidebar.slider(
-        label="Select the value of k:",
-        min_value= 2,
-        max_value= 10,
-        value=3,  # Initial value
-    )
+
 
     if st.button("Begin"):
         # Load the Iris dataset
@@ -48,7 +43,7 @@ def app():
         y = iris.target  # Target labels (species)
 
         # Define the K-means model with 3 clusters (known number of species)
-        kmeans = KMeans(n_clusters=k, random_state=0, n_init=10)
+        kmeans = KMeans(n_clusters=3, random_state=0, n_init=10)
 
         # Train the K-means model
         kmeans.fit(X)
@@ -62,7 +57,7 @@ def app():
 
         silhouette_score = metrics.silhouette_score(X, y_kmeans)
         st.write("K-means Silhouette Score:", silhouette_score)    
-        
+
         # Get predicted cluster labels
         y_pred = kmeans.predict(X)
 
