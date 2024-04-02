@@ -3,7 +3,7 @@ import streamlit as st
 # Define the Streamlit app
 def app():
 
-    text = """Comparing Supervised and Unsupervised Learning: KNN vs KMeans"""
+    text = """Supervised and Unsupervised Learning: KNN vs KMeans"""
     st.header(text)
 
     text = """Louie F. Cervantes, M. Eng. (Information Engineering) \n\n
