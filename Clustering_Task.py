@@ -4,7 +4,7 @@ import streamlit as st
 def app():
 
     text = """Comparing Supervised and Unsupervised Learning: KNN vs KMeans"""
-    st.subheader(text)
+    st.header(text)
 
     text = """Louie F. Cervantes, M. Eng. (Information Engineering) \n\n
     CCS 229 - Intelligent Systems
@@ -14,9 +14,9 @@ def app():
     st.text(text)
 
     st.image('iris_flower.jpg', caption="The Iris Dataset""")
-
-    text = """Data App: Supervised vs Unsupervised Learning Performance
-    \nThis data app allows users to compare the performance of supervised learning (KNN) and unsupervised 
+    st.subheader('Data App: Supervised vs Unsupervised Learning Performance')
+    
+    text = """This data app allows users to compare the performance of supervised learning (KNN) and unsupervised 
     learning (K-Means) gorithms for clustering tasks. 
     \nOnce configured, users can initiate the analysis. The app will run the KNN and K-Means algorithms on 
     the iris dataset.
