@@ -84,26 +84,35 @@ def app():
         st.subheader('Performance Metrics')
         st.text(classification_report(y, y_pred))
 
-        # Get unique class labels and color map
-        unique_labels = list(set(y_pred))
-        colors = plt.cm.get_cmap('viridis')(np.linspace(0, 1, len(unique_labels)))
+        xlabel = "Sepal Width"
+        ylabel = "Sepal Length"
+        title = 'Sepal Length vs Width Colored by Predicted Iris Species'
+        plot_features(iris, X, y_pred, 0, 1, xlabel, ylabel, title)
 
-        fig, ax = plt.subplots(figsize=(8, 6))
+        xlabel = "Petal  Width"
+        ylabel = "Petal Length"
+        title = 'Petal Width vs Petal Length Colored by Predicted Iris Species'
+        plot_features(iris, X, y_pred, 2, 3, xlabel, ylabel, title)
 
-        for label, color in zip(unique_labels, colors):
-            indices = y_pred == label
-            # Use ax.scatter for consistent plotting on the created axis
-            ax.scatter(X[indices, 0], X[indices, 1], label=iris.target_names[label], c=color)
+def plot_features(iris, X, y_pred, feature_x, feature_y, xlabel, ylabel, title):
+    # Get unique class labels and color map
+    unique_labels = list(set(y_pred))
+    colors = plt.cm.get_cmap('Set1')(np.linspace(0, 1, len(unique_labels)))
 
-        # Add labels and title using ax methods
-        ax.set_xlabel('Sepal length (cm)')
-        ax.set_ylabel('Sepal width (cm)')
-        ax.set_title('Sepal Length vs Width Colored by Predicted Iris Species')
+    fig, ax = plt.subplots(figsize=(8, 6))
+    for label, color in zip(unique_labels, colors):
+        indices = y_pred == label
+        # Use ax.scatter for consistent plotting on the created axis
+        ax.scatter(X[indices, feature_x], X[indices, feature_y], label=iris.target_names[label], c=color)
 
-        # Add legend and grid using ax methods
-        ax.legend()
-        ax.grid(True)
-        st.pyplot(fig)
+    # Add labels and title using ax methods
+    ax.set_xlabel(xlabel)
+    ax.set_ylabel(ylabel)
+    ax.set_title(title)
+    # Add legend and grid using ax methods
+    ax.legend()
+    ax.grid(True)
+    st.pyplot(fig)
 
 
 #run the app
