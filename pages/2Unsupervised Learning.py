@@ -87,12 +87,12 @@ def app():
         y_pred = kmeans.predict(X)
 
         xlabel = "Sepal Width"
-        xlabel = "Sepal Length"
+        ylabel = "Sepal Length"
         title = 'Sepal Length vs Width Colored by Predicted Iris Species'
         plot_features(iris, X, y_pred, 0, 1, xlabel, ylabel, title)
-        
+
         xlabel = "Petal  Width"
-        xlabel = "Petal Length"
+        ylabel = "Petal Length"
         title = 'Petal Width vs Petal Length Colored by Predicted Iris Species'
         plot_features(iris, X, y_pred, 2, 3, xlabel, ylabel, title)
 
