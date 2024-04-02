@@ -86,7 +86,7 @@ def app():
 
         xlabel = "Sepal Width"
         ylabel = "Sepal Length"
-        title = 'Sepal Length vs Width Colored by Predicted Iris Species'
+        title = 'Sepal Width vs Sepal Length Colored by Predicted Iris Species'
         plot_features(iris, X, y_pred, 0, 1, xlabel, ylabel, title)
 
         xlabel = "Petal  Width"
