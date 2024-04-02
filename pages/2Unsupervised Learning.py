@@ -77,33 +77,37 @@ def app():
         * **Moderately separated clusters:** The data points within a cluster are somewhat closer to their centroid than to centroids of other clusters. There's some separation, but it's not perfect
         * **Potential for improvement:** You might consider exploring different numbers of clusters (k) or using different initialization methods for K-means to see if a better clustering solution can be achieved with a higher Silhouette Score (closer to 1).
         * The Iris dataset is relatively well-separated into three flower species. A Silhouette Score above 0.5 might be achievable with an appropriate number of clusters (k=3) and good initialization.
-        * The optimal k can vary depending on the specific dataset and the desired level of granularity in the clustering."""
-        with st.expander("Click here for more information."):\
+        * The optimal k can vary depending on the specific dataset and the desired level of granularity in the clustering.
+        
+        k = 3 (we use the domain knowledge that there are 3 species in the data)"""
+        with st.expander("Click here for more information."):
             st.write(text)
             
         # Get predicted cluster labels
         y_pred = kmeans.predict(X)
 
-        # Get unique class labels and color map
-        unique_labels = list(set(y_pred))
-        colors = plt.cm.get_cmap('viridis')(np.linspace(0, 1, len(unique_labels)))
+        plot_features(X, y_pred, 0, 1)
+        plot_features(X, y_pred, 2, 3)
 
-        fig, ax = plt.subplots(figsize=(8, 6))
+def plot_features(X, y_pred feature_x, feature_y):
+    # Get unique class labels and color map
+    unique_labels = list(set(y_pred))
+    colors = plt.cm.get_cmap('viridis')(np.linspace(0, 1, len(unique_labels)))
 
-        for label, color in zip(unique_labels, colors):
-            indices = y_pred == label
-            # Use ax.scatter for consistent plotting on the created axis
-            ax.scatter(X[indices, 0], X[indices, 1], label=iris.target_names[label], c=color)
+    fig, ax = plt.subplots(figsize=(8, 6))
+    for label, color in zip(unique_labels, colors):
+        indices = y_pred == label
+        # Use ax.scatter for consistent plotting on the created axis
+        ax.scatter(X[indices, feature_x], X[indices, feature_y], label=iris.target_names[label], c=color)
 
-        # Add labels and title using ax methods
-        ax.set_xlabel('Sepal length (cm)')
-        ax.set_ylabel('Sepal width (cm)')
-        ax.set_title('Sepal Length vs Width Colored by Predicted Iris Species')
-
-        # Add legend and grid using ax methods
-        ax.legend()
-        ax.grid(True)
-        st.pyplot(fig)
+    # Add labels and title using ax methods
+    ax.set_xlabel('Sepal length (cm)')
+    ax.set_ylabel('Sepal width (cm)')
+    ax.set_title('Sepal Length vs Width Colored by Predicted Iris Species')
+    # Add legend and grid using ax methods
+    ax.legend()
+    ax.grid(True)
+    st.pyplot(fig)
 
 
 #run the app
