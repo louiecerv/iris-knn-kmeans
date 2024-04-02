@@ -86,10 +86,10 @@ def app():
         # Get predicted cluster labels
         y_pred = kmeans.predict(X)
 
-        plot_features(X, y_pred, 0, 1)
-        plot_features(X, y_pred, 2, 3)
+        plot_features(iris, X, y_pred, 0, 1)
+        plot_features(iris, X, y_pred, 2, 3)
 
-def plot_features(X, y_pred, feature_x, feature_y):
+def plot_features(iris, X, y_pred, feature_x, feature_y):
     # Get unique class labels and color map
     unique_labels = list(set(y_pred))
     colors = plt.cm.get_cmap('viridis')(np.linspace(0, 1, len(unique_labels)))
