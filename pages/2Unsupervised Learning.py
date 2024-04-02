@@ -99,7 +99,7 @@ def app():
 def plot_features(iris, X, y_pred, feature_x, feature_y, xlabel, ylabel, title):
     # Get unique class labels and color map
     unique_labels = list(set(y_pred))
-    colors = plt.cm.get_cmap('viridis')(np.linspace(0, 1, len(unique_labels)))
+    colors = plt.cm.get_cmap('magma')(np.linspace(0, 1, len(unique_labels)))
 
     fig, ax = plt.subplots(figsize=(8, 6))
     for label, color in zip(unique_labels, colors):
