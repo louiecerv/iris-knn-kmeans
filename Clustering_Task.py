@@ -6,9 +6,9 @@ def app():
     text = """Supervised and Unsupervised Learning: KNN vs KMeans"""
     st.header(text)
 
-    text = """Louie F. Cervantes, M. Eng. (Information Engineering) \n\n
+    text = """Prof. Louie F. Cervantes, M. Eng. (Information Engineering) \n\n
     CCS 229 - Intelligent Systems
-    Computer Science Department
+    Department of Computer Science
     College of Information and Communications Technology
     West Visayas State University"""
     st.text(text)
