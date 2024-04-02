@@ -86,10 +86,17 @@ def app():
         # Get predicted cluster labels
         y_pred = kmeans.predict(X)
 
-        plot_features(iris, X, y_pred, 0, 1)
-        plot_features(iris, X, y_pred, 2, 3)
+        xlabel = "Sepal Width"
+        xlabel = "Sepal Length"
+        title = 'Sepal Length vs Width Colored by Predicted Iris Species'
+        plot_features(iris, X, y_pred, 0, 1, xlabel, ylabel, title)
+        
+        xlabel = "Petal  Width"
+        xlabel = "Petal Length"
+        title = 'Petal Width vs Petal Length Colored by Predicted Iris Species'
+        plot_features(iris, X, y_pred, 2, 3, xlabel, ylabel, title)
 
-def plot_features(iris, X, y_pred, feature_x, feature_y):
+def plot_features(iris, X, y_pred, feature_x, feature_y, xlabel, ylabel, title):
     # Get unique class labels and color map
     unique_labels = list(set(y_pred))
     colors = plt.cm.get_cmap('viridis')(np.linspace(0, 1, len(unique_labels)))
@@ -101,9 +108,9 @@ def plot_features(iris, X, y_pred, feature_x, feature_y):
         ax.scatter(X[indices, feature_x], X[indices, feature_y], label=iris.target_names[label], c=color)
 
     # Add labels and title using ax methods
-    ax.set_xlabel('Sepal length (cm)')
-    ax.set_ylabel('Sepal width (cm)')
-    ax.set_title('Sepal Length vs Width Colored by Predicted Iris Species')
+    ax.set_xlabel(xlabel)
+    ax.set_ylabel(ylabel)
+    ax.set_title(title)
     # Add legend and grid using ax methods
     ax.legend()
     ax.grid(True)
