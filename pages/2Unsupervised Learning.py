@@ -85,7 +85,8 @@ def app():
             
         # Get predicted cluster labels
         y_pred = kmeans.predict(X)
-
+        
+        st.subheader('Data Visualization')
         xlabel = "Sepal Width"
         ylabel = "Sepal Length"
         title = 'Sepal Length vs Width Colored by Predicted Iris Species'
