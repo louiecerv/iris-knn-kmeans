@@ -83,7 +83,8 @@ def app():
         st.text(cm)
         st.subheader('Performance Metrics')
         st.text(classification_report(y, y_pred))
-
+        
+        st.subheader('Data Visualization')
         xlabel = "Sepal Width"
         ylabel = "Sepal Length"
         title = 'Sepal Width vs Sepal Length Colored by Predicted Iris Species'
